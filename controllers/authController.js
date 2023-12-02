@@ -43,13 +43,13 @@ export const login = async (req, res) => {
 
         if (!isValid) {
             return res
-                .status(400)
+                .status(403)
                 .json({ message: 'Invalid password or email' });
         }
 
         const { password: pas, ...restData } = user._doc;
 
-        return res.status(201).json(restData);
+        return res.status(200).json(restData);
     } catch (error) {
         console.error(error);
         return res.status(500).json({ message: error.message });

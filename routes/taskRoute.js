@@ -40,6 +40,15 @@ router.use(checkAuth);
  *          description: "buy"
  *          completed: false
  *          createdBy: rt56493hsrdf
+ * 
+ *   parameters:
+ *     idParam:
+ *       in: path
+ *       name: id
+ *       schema: 
+ *         type: string
+ *       required: true
+ *       description: Task id
 */
 
 /**
@@ -136,12 +145,7 @@ router.get('/tasks/all', checkAdmin, getAllTasks);
  *     security:
  *       - basicAuth: []
  *     parameters:
- *       - in: path
- *         name: id
- *         schema: 
- *           type: string
- *         required: true
- *         description: Task id
+ *       - $ref: '#/components/parameters/idParam'
  *     responses:
  *       200:
  *         description: Success
@@ -166,12 +170,7 @@ router.get('/task/:id', getTask);
  *     security:
  *       - basicAuth: []
  *     parameters:
- *       - in: path
- *         name: id
- *         schema: 
- *           type: string
- *         required: true
- *         description: Task id
+ *       - $ref: '#/components/parameters/idParam'
  *     requestBody:
  *       required: true
  *       content:
@@ -209,12 +208,7 @@ router.put('/task/:id', updateTask);
  *     security:
  *       - basicAuth: []
  *     parameters:
- *       - in: path
- *         name: id
- *         schema: 
- *           type: string
- *         required: true
- *         description: Task id
+ *       - $ref: '#/components/parameters/idParam'
  *     responses:
  *       200:
  *         description: Success
