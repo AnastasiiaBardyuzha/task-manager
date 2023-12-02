@@ -6,7 +6,7 @@ export default async (req, res, next) => {
 
     //check if user has admin role
     if (req.user.role !== 'admin') {
-        return res.status(500).json({ message: "User don't have permissions" });
+        return res.status(403).json({ message: "User don't have permissions" });
     }
 
     next();
